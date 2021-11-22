@@ -12,7 +12,7 @@ const styles = {
   contentContainer: {
     display: "flex",
     flexDirection: "column",
-    margin: "1rem 4rem",
+    margin: "1rem 2rem",
   },
   title: {
     fontSize: "2rem",
@@ -21,6 +21,11 @@ const styles = {
   singleQuoteContainer: {
     display: "flex",
     flexDirection: "row",
+  },
+  bottomQuoteRow: {
+    display: "flex",
+    flexDirection: "row",
+    justifyContent: "space-between",
   },
   singleQuoteText: {
     fontSize: "1rem",
@@ -70,12 +75,15 @@ const QuoteCard = ({ type, quote }) => {
               <div style={styles.singleQuoteText}>Compra</div>
               <div style={styles.singleQuoteValue}>${quote.buy_price.toString().replace(".", ",")} / {buySlippageText}%</div>
             </div>
-            <div style={styles.singleQuoteContainer}>
-              <div style={styles.singleQuoteText}>Venta</div>
-              <div style={styles.singleQuoteValue}>${quote.sell_price.toString().replace(".", ",")} / {sellSlippageText}%</div>
+            <div style={styles.bottomQuoteRow}>
+              <div style={styles.singleQuoteContainer}>
+                <div style={styles.singleQuoteText}>Venta</div>
+                <div style={styles.singleQuoteValue}>${quote.sell_price.toString().replace(".", ",")} / {sellSlippageText}%</div>
+              </div>
+              <Button variant="contained" style={styles.sourceButton} href={quote.source}>source</Button>
             </div>
             <div style={styles.sourceContainer}>
-              <Button variant="contained" style={styles.sourceButton} href={quote.source}>source</Button>
+              
             </div>
           </CardContent>
         );
